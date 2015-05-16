@@ -1,0 +1,7 @@
+development:
+  adapter: postgresql
+  database: gas_savings_development
+
+test:
+  adapter: postgresql
+  database: gas_savings_test
