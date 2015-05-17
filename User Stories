@@ -1,0 +1,37 @@
+It will allow us to find out how much we spent on gas in a certain month
+
+It will allow us to calculate savings from using this application
+
+It will notify us when there is gas in our choosen area that is cheaper than our average
+
+It will allow us to input how much gas we paid for
+
+It will allow us ot input the price of the gas we paid for
+
+it will allow us to find out how many miles or kilometers to the gallon/liter we are getting
+
+It will allow us to input the name of the gas station which we bought from
+
+
+Tables
+
+Gas
+-------
+id
+price
+amount
+
+
+
+Station
+-------
+id
+name
+address
+
+
+Gas_Station
+========
+id
+Gas_id
+Gas_station_id

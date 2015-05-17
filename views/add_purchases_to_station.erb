@@ -1,0 +1,23 @@
+<h1>Here are the purchases at <%= @station.name %></h1>
+
+<!-- Problem having @station, says that it is undefined! Figure out a way to put that back in properly -->
+<% if @station.gas.any?() %>
+  <% @station.gas.each do |pch| %>
+    <ul>
+      <li><%= pch.name %> </li>
+    </ul>
+  <% end %>
+<% else %>
+<h4>There are no purchases for this station</h4>
+
+<% end %>
+
+<form action='/gas_stations/:id/add_purchases' method='post'>
+  <label for='purchase_to_add'>Add a purchase to the station</label>
+  <select id='purchase_to_add' name='purchase_to_add' type='text'>
+    <% @gas.each do |gas| %>
+      <option value= <%= gas.id %>><%=gas.name%></option>
+      <% end %>
+  </select>
+  <button type='submit'>Add Purchase to Station</button>
+</form>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150516230312) do
+ActiveRecord::Schema.define(version: 20150517010535) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,8 @@ ActiveRecord::Schema.define(version: 20150516230312) do
     t.datetime "date"
     t.float    "price"
     t.float    "amount"
+    t.float    "mpg"
+    t.float    "miles"
   end
 
   create_table "gas_stations", id: false, force: :cascade do |t|

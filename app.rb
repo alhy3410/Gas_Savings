@@ -17,7 +17,9 @@ post('/gas_purchases') do
   gas_date = params.fetch('gas_date')
   gas_price = params.fetch('gas_price')
   gas_amount = params.fetch('gas_amount')
-  new_gas_purchase = Gas.create({:name => gas_name, :date => gas_date, :price => gas_price, :amount => gas_amount})
+  miles = params.fetch('gas_miles')
+#Add a way to enter MPG into the program ! Also moved pry from test to all
+  new_gas_purchase = Gas.create({:name => gas_name, :date => gas_date, :price => gas_price, :amount => gas_amount, :mpg => mpg, :miles => miles})
   @gas = Gas.all()
   erb(:list_of_all_gas_purchases)
 end
@@ -50,6 +52,16 @@ get('/delete_stations/:id') do
 end
 
 get('/gas_stations/:id/add_purchases') do
+  @station = Station.find(params.fetch('id').to_i())
+  @gas = Gas.all()
+  erb(:add_purchases_to_station)
+end
 
+post('/gas_stations/:id/add_purchases') do
+  @station = Station.find(params.fetch('id').to_i())
+  purchase_id = params.fetch('purchase_to_add').to_i()
+  purchase = gas.find(purchase_id)
+  @station.gas.push(purchase)
+  @gas = Gas.all()
   erb(:add_purchases_to_station)
 end

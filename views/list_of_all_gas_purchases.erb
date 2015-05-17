@@ -10,6 +10,8 @@
       <li><%= purchase.date %></li>
       <li>Purchase Price: $<%= purchase.price %></li>
       <li>Purchase Amount: <%= purchase.amount %></li>
+      <li>Miles Travelled on One Tank: <%=purchase.miles %></li>
+      <li>MPG: <%= purchase.mpg %></li>
       <a href='/delete_purchase/<%= purchase.id()%>'>Delete</a>
     </ul>
   <% end %>
@@ -28,6 +30,8 @@
   <input id='gas_price' name='gas_price' type='float'><br>
   <label for='gas_purchase'>Enter the amount of Gas Purchased (eg:gallons): </label>
   <input id='gas_amount' name='gas_amount' type='float'><br>
+  <label for='gas_purchase'>Enter how many miles you travelled on this tank of gas: </label>
+  <input id='gas_miles' name='gas_miles' type='float'><br>
   <button type='submit'>Add Purchase</button>
 </form>
 

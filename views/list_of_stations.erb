@@ -4,7 +4,7 @@
 <% @stations.all.each() do |station| %>
 
 <ul>
-  <li><a href='/gas_stations/<%=station.id()%>'><%= station.name %> - <%= station.address %></li>
+  <li><a href='/gas_stations/<%=station.id()%>/add_purchases'><%= station.name %> - <%= station.address %></li>
   <a href='/delete_stations/<%= station.id()%>'>Delete</a>
 </ul>
 <% end %>
