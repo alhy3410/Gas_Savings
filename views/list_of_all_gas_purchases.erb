@@ -1,0 +1,35 @@
+<h1>Here are all of your gas purchases</h1>
+
+<% if @gas.any? %>
+  <% total = 0 %>
+  <% @gas.all.each() do |purchase| %>
+  <% total += purchase.price %>
+
+    <ul>
+      <li><%= purchase.name %></li>
+      <li><%= purchase.date %></li>
+      <li>Purchase Price: $<%= purchase.price %></li>
+      <li>Purchase Amount: <%= purchase.amount %></li>
+      <a href='/delete_purchase/<%= purchase.id()%>'>Delete</a>
+    </ul>
+  <% end %>
+  <% avgprice = total / @gas.length %>
+  <h4>The average price for Gas is <%= avgprice.round(2) %> </h4>
+<% else %>
+<h4>There have been no gas purchases</h4>
+<% end %>
+
+<form action='/gas_purchases' method='post'>
+  <label for='gas_purchase'>Enter a note about the Gas Purchase Here: </label>
+  <input id='gas_name' name='gas_name' type='text'><br>
+  <label for='gas_purchase'>Enter the Date you bought your Gas Here: </label>
+  <input id='gas_date' name='gas_date' type='date'><br>
+  <label for='gas_purchase'>Enter the price per Gallon for the Gas ($): </label>
+  <input id='gas_price' name='gas_price' type='float'><br>
+  <label for='gas_purchase'>Enter the amount of Gas Purchased (eg:gallons): </label>
+  <input id='gas_amount' name='gas_amount' type='float'><br>
+  <button type='submit'>Add Purchase</button>
+</form>
+
+
+<h5><a href='/'>Back to the Home Page</a></h5>
