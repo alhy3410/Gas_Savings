@@ -1,0 +1,24 @@
+<h1>Here are all of the Gas Stations you used</h1>
+
+<% if @stations.any? %>
+<% @stations.all.each() do |station| %>
+
+<ul>
+  <li><a href='/gas_stations/<%=station.id()%>'><%= station.name %> - <%= station.address %></li>
+  <a href='/delete_stations/<%= station.id()%>'>Delete</a>
+</ul>
+<% end %>
+<% else %>
+<h4>There are no stations available!</h4>
+<% end %>
+
+<form action='/gas_stations' method='post'>
+  <label for='gas_stations'>Enter the name of the Gas Station Here: </label>
+  <input id='gas_station_name' name='gas_station_name' type='text'><br>
+  <label for='gas_stations'>Enter the address of the Gas Station Here: </label>
+  <input id='gas_station_address' name='gas_station_address' type='text'><br>
+  <button type='submit'>Add Gas Station</button>
+</form>
+
+
+<h5><a href='/'>Back to the Home Page</a></h5>
