@@ -1,10 +1,7 @@
 <h1>Here are all of your gas purchases</h1>
 
 <% if @gas.any? %>
-  <% total = 0 %>
   <% @gas.all.each() do |purchase| %>
-  <% total += purchase.price %>
-
     <ul>
       <li><%= purchase.name %></li>
       <li><%= purchase.date %></li>
@@ -15,8 +12,7 @@
       <a href='/delete_purchase/<%= purchase.id()%>'>Delete</a>
     </ul>
   <% end %>
-  <% avgprice = total / @gas.length %>
-  <h4>The average price for Gas is <%= avgprice.round(2) %> </h4>
+  <h4>The average price for Gas is <%= @average %> </h4>
 <% else %>
 <h4>There have been no gas purchases</h4>
 <% end %>
