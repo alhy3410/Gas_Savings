@@ -10,16 +10,8 @@ class Gas < ActiveRecord::Base
       total += purchase.price
     end
     num = Gas.all.length
+    num > 0
     average = total/num
     average.round(2)
   end
-
-
-  define_method(:findmpg) do |amount_of_gas_purchased|
-    miles = self.to_f
-    gas_amount = amount_of_gas_purchased.to_f
-    mpg = miles / gas_amount
-    mpg
-  end
-
 end

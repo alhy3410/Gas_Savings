@@ -19,11 +19,10 @@ post('/gas_purchases') do
   gas_price = params.fetch('gas_price').to_f()
   gas_amount = params.fetch('gas_amount').to_f()
   miles = params.fetch('gas_miles').to_f()
-  # mpg = miles.findmpg(gas_amount).to_f()
-  new_gas_purchase = Gas.create({:name => gas_name, :date => gas_date, :price => gas_price, :amount => gas_amount, :miles => miles}) # :mpg => mpg,
+  mpg = miles / gas_amount
+  new_gas_purchase = Gas.create({:name => gas_name, :date => gas_date, :price => gas_price, :amount => gas_amount, :miles => miles, :mpg => mpg.round(2)})
   @gas = Gas.all()
   @average = Gas.average_of_all()
-  binding.pry
   erb(:list_of_all_gas_purchases)
 end
 
