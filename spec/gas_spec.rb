@@ -1,12 +1,9 @@
 require('spec_helper')
 
 describe('Gas') do
-  describe('#findmpg') do
-    it('will calculate the mpg for a car')
-    gas_amount = 30
-    miles = 1500
-    answer = miles.findmpg(gas_amount)
-    newpurchase = Gas.create({:mpg => answer})
-    expect(newpurchase.mpg).to(eq(50.00))
+  it('will add a new purchase') do
+    test_purchase = Gas.create({:name => "Purchased on the way home"})
+    expect(test_purchase.name()).to(eq("Purchased on the way home"))
   end
+
 end
