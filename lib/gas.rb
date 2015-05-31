@@ -10,8 +10,7 @@ class Gas < ActiveRecord::Base
       total += purchase.price
     end
     num = Gas.all.length
-    num > 0
-    average = total/num
+    average = total/ (num.nonzero? || 1)
     average.round(2)
   end
 end
