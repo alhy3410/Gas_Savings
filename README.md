@@ -1,6 +1,7 @@
 #Author Name: Andrew Lee
 #Program Name: Gas_Savings
-#Description: <p>Hoping to allow users to input their gas purchases and later integrate it with gas buddy</p>
+#Description: 
+<p>Hoping to allow users to input their gas purchases and later integrate it with gas buddy</p>
 
 #Set-up instructions:
 <p>This is a work in progress.
